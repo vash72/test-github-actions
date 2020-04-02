@@ -14,6 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: NodeJS 12.x
+        uses: actions/setup-node@v1 #this installs node and npm for us
+        with:
+          node-version: "12.x"
+
       - name: Cache node modules
         uses: actions/cache@v1
         with:
@@ -22,16 +27,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: NodeJS 12.x
-        uses: actions/setup-node@v1 #this installs node and npm for us
-        with:
-          node-version: "12.x"
-
       - name: Install node_modules
         run: npm install
 
       - name: Linting
-        run: ng lint
+        run: npm run lint
 
       - name: Build for production --optimized
-        run: ng b --prod --aot
+        run: npm run build --prod --aot

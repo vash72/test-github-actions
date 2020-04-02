@@ -27,8 +27,8 @@ jobs:
         with:
           node-version: "12.x"
 
-      - name: Prepare npm ci
-        run: npm ci
+      - name: Install modules
+        run: npm i
 
       - name: Linting
         run: npm run lint

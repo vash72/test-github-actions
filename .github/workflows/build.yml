@@ -28,7 +28,7 @@ jobs:
           node-version: "12.x"
 
       - name: Install modules
-        run: npm i
+        run: npm install
 
       - name: Linting
         run: npm run lint

@@ -13,13 +13,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-
-      - name: Node $
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1 #this installs node and npm for us
         with:
-          node-version: $
-
-      - name: npm install and npm run build
-        run: |
-          npm ci
-          npm run build:ci
+          node-version: "12.x"
+      - run: npm install
+      - run: npm install -g @angular/cli > /dev/null
+      - run: ng lint
+      - run: ng build --prod

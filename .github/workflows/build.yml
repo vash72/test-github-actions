@@ -22,13 +22,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Node Setup
+      - name: Node 12.x Setup
         uses: actions/setup-node@v1 #this installs node and npm for us
         with:
           node-version: "12.x"
 
       - name: Prepare npm ci
-      - run: npm ci
+        run: npm ci
 
       - name: Linting
-      - run: npm run lint
+        run: npm run lint

@@ -1,4 +1,4 @@
-name: Build
+name: Master Build
 on:
   push:
     branches:
@@ -13,10 +13,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1 #this installs node and npm for us
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Node Setup
+        uses: actions/setup-node@v1 #this installs node and npm for us
         with:
           node-version: "12.x"
-      - run: npm install
-      - run: npm install -g @angular/cli > /dev/null
-      - run: ng lint
-      - run: ng build --prod
+
+      - name: Prepare npm ci
+      - run: npm ci
+
+      - name: Linting
+      - run: npm run lint

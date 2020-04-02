@@ -28,7 +28,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install node_modules
-        run: npm install
+        run: npm install -d
 
       - name: Linting
         run: npm run lint

@@ -19,19 +19,39 @@ jobs:
         with:
           node-version: "12.x"
 
-      - name: Cache node modules
-        uses: actions/cache@v1
+      # - name: Cache node modules
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ~/.npm
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
+
+      # - name: Install node_modules
+      #   run: npm install
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-yarn-
 
-      - name: Install node_modules
-        run: npm install
+      # - name: Linting
+      #   run: npm run lint
 
-      - name: Linting
-        run: npm run lint
+      # - name: Build for production
+      #   run: npm run build:prod
 
-      - name: Build for production
-        run: npm run build:prod
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install # will run `yarn install` command
+
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build:brod # will run `yarn build` command

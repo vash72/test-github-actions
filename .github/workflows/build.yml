@@ -34,4 +34,4 @@ jobs:
         run: npm run lint
 
       - name: Build for production
-        run: npm run build --prod
+        run: npm run build:prod

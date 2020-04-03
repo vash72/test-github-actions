@@ -1,4 +1,4 @@
-name: CI Build Master
+name: CI Build Release
 on:
   push:
     branches:

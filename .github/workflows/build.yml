@@ -27,7 +27,10 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.os }}-node-
 
-      - name: Install node_modules
+      - name: Yarn cache location
+        run: yarn cache dir
+
+      - name: Install dependecies
         run: yarn
 
       - name: Linting

@@ -37,9 +37,10 @@ jobs:
       #   run: yarn cache dir
 
       - name: Install dependecies
-        run: yarn install --offline
+        run: yarn install --prefer-offline --emoji true
 
       - name: Linting
         run: yarn run lint
-      # - name: Build for production
-      #   run: yarn run build:prod
+
+      - name: Build for production
+        run: yarn run build:prod

@@ -19,19 +19,19 @@ jobs:
         with:
           node-version: "12.x"
 
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+      # - name: Cache node modules
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ~/.npm
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
 
       - name: Install node_modules
-        run: npm install --verbose
+        run: yarn
 
       - name: Linting
-        run: npm run lint
+        run: yarn run lint
 
       - name: Build for production
-        run: npm run build:prod
+        run: yarn run build:prod

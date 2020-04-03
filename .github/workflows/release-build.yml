@@ -2,7 +2,7 @@ name: CI Build Master
 on:
   push:
     tags:
-      - v0.*
+      - v*
 
 jobs:
   build:

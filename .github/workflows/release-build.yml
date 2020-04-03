@@ -1,6 +1,8 @@
 name: CI Build Master
 on:
   push:
+    branches:
+      - master #remove after test
     tags:
       - v*
 

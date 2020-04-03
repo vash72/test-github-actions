@@ -34,7 +34,7 @@ jobs:
         run: yarn run lint
 
       - name: Build for production
-        run: yarn run build:prod --${{github.repository}}
+        run: yarn run build:prod --base-href=/${{github.repository}}/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

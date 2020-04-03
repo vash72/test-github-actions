@@ -1,8 +1,6 @@
-name: CI Build
+name: Build and deploy
 on:
-  push:
-    branches:
-      - master
+  pull_request:
 
 jobs:
   build:
@@ -30,6 +28,3 @@ jobs:
 
       - name: Linting
         run: yarn run lint
-
-      - name: Build for production
-        run: yarn run build:prod

@@ -33,6 +33,9 @@ jobs:
           path: ~/.cache/yarn/v6
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
 
+      - name: TEST
+        run: yarn info @angular/core
+
       # - name: Yarn cache location
       #   run: yarn cache dir
 

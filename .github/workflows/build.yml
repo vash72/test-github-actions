@@ -40,7 +40,7 @@ jobs:
       #   run: yarn cache dir
 
       - name: Install dependecies
-        run: yarn
+        run: yarn install --prefer-offline
 
       - name: Linting
         run: yarn run lint

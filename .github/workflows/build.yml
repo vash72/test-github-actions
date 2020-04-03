@@ -31,9 +31,9 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/home/runner/.cache/yarn/v6
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-yarn-
 
       - name: Yarn cache location
         run: yarn cache dir

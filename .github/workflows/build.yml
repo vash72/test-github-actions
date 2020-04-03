@@ -19,16 +19,16 @@ jobs:
         with:
           node-version: "12.x"
 
-      - name: Cache node modules?
+      - name: Cache node modules
         uses: actions/cache@v1
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
       - name: Install node_modules
-        run: npm install
+        run: npm install --verbose
 
       - name: Linting
         run: npm run lint

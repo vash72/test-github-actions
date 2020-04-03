@@ -1,5 +1,5 @@
 @angular-devkit/build-angular
-MIT
+MIT2
 The MIT License
 
 Copyright (c) 2017 Google, Inc.

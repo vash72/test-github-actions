@@ -27,7 +27,7 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.os }}-node-
 
-      - name: Cache node modules
+      - name: Cache dependecies
         uses: actions/cache@v1
         with:
           path: ~/.cache/yarn/v6

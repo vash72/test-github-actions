@@ -35,14 +35,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Yarn cache location
-        run: yarn cache dir
+      # - name: Yarn cache location
+      #   run: yarn cache dir
 
       - name: Install dependecies
         run: yarn
 
       - name: Linting
         run: yarn run lint
-
-      - name: Build for production
-        run: yarn run build:prod
+      # - name: Build for production
+      #   run: yarn run build:prod

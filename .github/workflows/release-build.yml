@@ -34,7 +34,7 @@ jobs:
         run: yarn run lint
 
       - name: Build for production
-        run: yarn run build:prod --base-href /ng-github-actions/
+        run: yarn run build:prod --base-href /test-github-actions/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
     setInterval(() => {
 
-      this.hello = faker.fake('HeLLo {{name.lastName}}, {{name.firstName}} {{name.suffix}}');
+      this.hello = faker.fake('Ciao {{name.lastName}}, {{name.firstName}} {{name.suffix}}');
 
     }, 1500);
 

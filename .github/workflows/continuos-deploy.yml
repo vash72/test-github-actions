@@ -23,6 +23,8 @@ jobs:
           node-version: "12.x"
 
       - name: Cache dependecies
+        # on -> release cannot use cache
+        if: github.event_name == 'push' || github.event_name == 'pull_request'
         uses: actions/cache@v1
         with:
           path: ~/.cache/yarn/v6

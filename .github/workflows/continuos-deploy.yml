@@ -1,8 +1,8 @@
 name: Continuos Deploy
 on:
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
   release:
     types:
       - created
@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: "12.x"
 
-      - name: Cache node_modules
+      - name: Cache dependecies
         uses: actions/cache@v1
         with:
           path: ~/.cache/yarn/v6

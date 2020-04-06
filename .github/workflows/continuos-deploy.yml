@@ -14,10 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: NodeJS 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
+      # can skip node is already preinstalled in virtual-env
+      # https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1804-README.md
+      # - name: NodeJS 12.x
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: "12.x"
 
       - name: Cache dependecies
         # on -> release cannot use cache

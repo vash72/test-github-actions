@@ -9,10 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: NodeJS 12.x
+      - name: NodeJS 10.x
         uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
+          node-version: "10.x"
 
       - name: Cache dependecies
         uses: actions/cache@v1

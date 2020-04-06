@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      # can skip node is already preinstalled in virtual-env
+      # can skip node is already preinstalled in virtual-env (nodeJs 6/4/2020 problem on download)
       # https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1804-README.md
       # - name: NodeJS 12.x
       #   uses: actions/setup-node@v1

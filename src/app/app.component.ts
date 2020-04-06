@@ -8,7 +8,7 @@ import * as faker from 'faker';
 })
 export class AppComponent implements OnInit {
   title = 'ng-github-actions';
-  hello = 'Ciao belli';
+  hello = 'Ciao belli ';
 
   ngOnInit(): void {
 
